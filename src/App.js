@@ -1,11 +1,11 @@
-import './App.css';
-import Header from './components/Header/Header';
+import MainProvider from "./context/MainProvider";
+import Routing from "./Routing";
 
-function App() {
+function App() {  
   return (
-    <main className="app">
-      <Header />
-    </main>
+    <MainProvider>
+      <Routing />
+    </MainProvider>
   );
 }
 

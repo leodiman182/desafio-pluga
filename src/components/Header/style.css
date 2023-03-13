@@ -1,5 +1,4 @@
 .header-bar {
-  /* width: 100%; */
   padding: 20px 40px;
 }
 
@@ -9,12 +8,7 @@
   align-items: center;
   max-width: 1024px;
   margin: 0 auto;
-  /* background-color: black; */
 }
-
-/* .sec1 {
-  width: 30%;
-} */
 
 .logo {
   width: 150px;
@@ -39,7 +33,7 @@
   font-size: .95em;
   font-family: var(--font2);
   outline-color: var(--primary-blue);
-  color: #fff;
+  color: black;
   padding: 10px 10px 10px 35px;
   margin: 0;
   box-shadow: none;
@@ -59,7 +53,7 @@
   left: 10px;
   fill: #99aab6;
 } 
-/* 
-.sec2 {
-  width: 70%;
-} */
+
+.search-input {
+  color: lightblue;
+}

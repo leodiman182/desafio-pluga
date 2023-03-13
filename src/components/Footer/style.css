@@ -1,0 +1,27 @@
+.footer-bar {
+  padding: 20px 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.footer-box {
+  font-family: var(--font2);
+  font-size: 14px;
+}
+
+.footer-box > p > a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+.footer-box > p > a:hover {
+  color: var(--primary-blue);
+  transition-duration: 150ms;
+}
