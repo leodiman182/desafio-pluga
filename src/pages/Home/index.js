@@ -19,6 +19,19 @@ const Home = () => {
     selectedTool, setSelectedTool } = useContext(MainContext);
   const [inputValue, setInputValue] = useState('');
 
+  useEffect(() => {
+    if (!modalOpen) {
+      setSelectedTool({
+        app_id: "",
+        name: "",
+        color: "",
+        icon: "",
+        link: ""
+      })
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [modalOpen])
+
   // useEffect(() => {
   //   function handleQuery () {
   //     const newList = inputValue === ''
