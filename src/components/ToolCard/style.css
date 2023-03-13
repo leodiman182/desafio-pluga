@@ -14,12 +14,12 @@
 
   border-radius: 10px;
   border: transparent 2px solid;
-  background-color: rgb(234, 234, 234);
+  background-color: rgb(239, 239, 239);
 }
 
 .card-wrapper:hover {
+  opacity: 100%;
   transform: scale(1.04);
-  /* border: var(--primary-blue) 2px solid; */
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   transition-duration: 125ms;
   cursor: pointer;
@@ -33,7 +33,7 @@
   font-family: var(--font2);
   font-size: 24px;
   font-weight: 600;
-  color: var(--primary-gray);
+  color: white;
 }
 
 @media (min-width: 840px) {
@@ -48,6 +48,7 @@
     width: 120px;
     height: 150px;
     margin: 0 auto;
+    opacity: 50%;
   }
 
   .card-wrapper:hover {

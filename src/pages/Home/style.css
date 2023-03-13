@@ -82,10 +82,10 @@
   grid-template-columns: repeat(1, minmax(0, 1fr));
   max-width: 922px;
   border-radius: 5px;
-  margin: 40px auto;
+  margin: 80px auto;
   grid-row-gap: 50px;
-  padding: 75px 0;
-  background-color: var(--primary-blue);
+  padding: 20px 0 80px;
+  background-color: var(--second-gray);
 }
 
 .pagination-wrapper {
@@ -109,8 +109,8 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-row-gap: 20px;
     grid-column-gap: 20px;
-    margin: 30px auto;
-    padding: 50px;
+    margin: 40px auto;
+    padding: 30px 50px;
   }
 
   .grid-section {

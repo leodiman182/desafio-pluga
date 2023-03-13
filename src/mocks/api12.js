@@ -85,4 +85,30 @@ const apiMock = [
 	},
 ]
 
-export default apiMock;
+const previousTools = [
+  {
+    "app_id": "pipefy",
+    "name": "Pipefy",
+    "color": "#3B5BFD",
+    "icon": "https://assets.pluga.co/apps/icons/pipefy/pipefy-icon.svg",
+    "link": "https://pluga.co/ferramentas/pipefy/"
+  },
+  {
+    "app_id": "active_campaign",
+    "name": "ActiveCampaign",
+    "color": "#356ae6",
+    "icon": "https://assets.pluga.co/apps/icons/active_campaign/active_campaign-icon.svg",
+    "link": "https://pluga.co/ferramentas/active_campaign/"
+  },
+  {
+		"app_id": "sympla",
+		"name": "Sympla",
+		"color": "#0098ff",
+		"icon": "https://assets.pluga.co/apps/icons/sympla/sympla-icon.svg",
+		"link": "https://pluga.co/ferramentas/sympla/"
+	},
+]
+
+export  {
+  apiMock, previousTools
+};
