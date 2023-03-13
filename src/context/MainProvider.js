@@ -5,6 +5,8 @@ function TeiaProvider({ children }) {
   const [api, setApi] = useState([]);
   const [data, setData] = useState([]);
 
+  const [modalOpen, setModalOpen] = useState(false);
+
   const [selectedTool, setSelectedTool] = useState({
     app_id: "",
     name: "",
@@ -16,6 +18,7 @@ function TeiaProvider({ children }) {
   const context = {
     api, setApi,
     data, setData,
+    modalOpen, setModalOpen,
     selectedTool, setSelectedTool
   }
 

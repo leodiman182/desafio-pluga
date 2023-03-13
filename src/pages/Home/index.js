@@ -5,6 +5,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import './style.css';
 
+import { AiOutlineSearch } from "react-icons/ai";
+
 import apiMock from '../../mocks/api12';
 import ToolCard from '../../components/ToolCard';
 
@@ -31,6 +33,15 @@ const Home = () => {
     <main className="app">
       <Header />
       <article className='grid-section'>
+        <section className='grid-header'>
+          <div className='input-wrapper'>
+            <AiOutlineSearch className='search-icon' />
+            <input className='search-input' placeholder='Buscar ferramenta' type="text" />
+          </div>
+          <button className='button'>
+            EXIBIR TODAS
+          </button>
+        </section>
         <section className='grid-wrapper'>
           {
             apiMock.map((el, index) => (
@@ -46,9 +57,9 @@ const Home = () => {
           }
         </section>
         <div className='pagination-wrapper'>
-          <h2 className='pagination-title'>
-
-          </h2>
+          <p className='pagination-title'>
+            Página 1 de 4
+          </p>
         </div>
       </article>
       <Footer />

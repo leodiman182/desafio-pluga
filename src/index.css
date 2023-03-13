@@ -1,5 +1,6 @@
 :root {
   --primary-blue: #27aae1;
+  --primary-gray: #6b7280;
   --font1: 'Merriweather', serif;
   --font2: 'Montserrat', sans-serif;
 }
@@ -16,8 +17,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.test-app {
-  color: var(--primary-blue);
 }
