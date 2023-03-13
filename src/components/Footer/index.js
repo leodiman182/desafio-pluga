@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import plugaLogo from '../../assets/pluga-logo.png';
+import plugaLogo from '../../assets/round-icon.png';
 
 const Footer = () => {
   const data = new Date();
@@ -8,9 +8,11 @@ const Footer = () => {
 
   return (
     <footer className="footer-bar">
-      <img className='logo' src={ plugaLogo } alt="" />
-      <div className='footer-box'>
-        <p>{ year } | Desenvolvido por <a target='_blank' href="https://www.linkedin.com/in/leonardodiman/" rel="noopener noreferrer">Leonardo Diman</a></p>
+      <div className='footer-bar-div'>
+        <img className='footer-logo' src={ plugaLogo } alt="" />
+        <div className='footer-box'>
+          <p>{ year } | Desenvolvido por <a target='_blank' href="https://www.linkedin.com/in/leonardodiman/" rel="noopener noreferrer">Leonardo Diman</a></p>
+        </div>
       </div>
     </footer>
   )
