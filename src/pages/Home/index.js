@@ -136,6 +136,8 @@ const Home = () => {
                 <AiOutlineLoading size={'3.5em'} className='rotating' />
               </div>
             </div>
+          ) : api.length === 0 ? (
+            <p className='not-found'>Não encontramos nenhuma ferramenta :(</p>
           ) : (
             <>
               <section className='grid-wrapper'>
