@@ -13,14 +13,18 @@
 }
 
 .bar-div > nav {
-  width: 200px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.bar-div > nav > a > svg {
+  width: 40px;
 }
 
 .media-icon {
-  fill: var(--primary-gray);
+  fill: var(--tert-gray);
   width: 25px;
   margin-left: 10px;
 }
@@ -49,7 +53,19 @@
     align-items: flex-end;
     max-width: 1024px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding: 20px 10px 0
+  }
+
+  .bar-div > nav {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  .bar-div > nav > a > svg {
+    width: 25px;
   }
 
   .logo {
@@ -60,5 +76,11 @@
   .logo:hover {
     transition-duration: 125ms;
     transform: scale(1.1);
+  }
+
+  .media-icon:hover {
+    transition-duration: 125ms;
+    transform: scale(1.1);
+    fill: var(--primary-blue);
   }
 }

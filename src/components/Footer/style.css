@@ -22,7 +22,9 @@
 .footer-box {
   font-family: var(--font2);
   font-size: 14px;
+  color: var(--primary-gray)
 }
+
 
 .footer-box > p {
   text-align: center;

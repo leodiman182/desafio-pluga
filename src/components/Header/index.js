@@ -14,8 +14,8 @@ const Header = () => {
         </a>
         <nav>
           {
-            socialLinks.map(el => (
-              <a target='_blank' href={ el.link } rel="noreferrer">
+            socialLinks.map((el, index) => (
+              <a key={ index } target='_blank' href={ el.link } rel="noreferrer">
                 { el.icon }
               </a>
             ))

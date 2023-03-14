@@ -13,10 +13,9 @@
   left: calc(50% - 300px);
   background-color: white;
   width: 600px;
-  height: 360px;
+  height: 400px;
   opacity: 100%;
   z-index: 99;
-  padding: 0 0 40px;
   border-radius: 5px;
 }
 
@@ -26,14 +25,14 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 60px 10px 20px;
+  padding: 40px 60px 20px 40px;
   border-radius: 5px 5px 0 0;
 }
 
 .close-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   fill: var(--second-gray);
   opacity: 85%;
 }
@@ -45,31 +44,28 @@
   transition-duration: 125ms;
 }
 
-.custom-shape-divider-top-1678746214 {
-  position: absolute;
-  bottom: -30px;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
+.custom-shape-divider-top-1678817539 {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
 
-.custom-shape-divider-top-1678746214 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 30px;
-  transform: rotateY(180deg);
+.custom-shape-divider-top-1678817539 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 50px;
+    transform: rotateY(180deg);
 }
 
-/* .custom-shape-divider-top-1678746214 .shape-fill {
+/* .custom-shape-divider-top-1678817539 .shape-fill {
     fill: #FFFFFF;
 } */
-
 .icon-modal {
-  width: 60px;
-  padding: 20px;
-  border-radius: 9999px;
+  width: 80px;
 }
 
 .modal-info-wrapper {
@@ -101,6 +97,7 @@
   font-weight: 300;
   font-size: 17px;
   text-decoration: none;
+  margin-top: 10px;
 }
 
 .modal-info-wrapper > a:hover {
@@ -108,20 +105,37 @@
   color: white;
   transition-duration: 125ms;
   opacity: 100%;
-  /* transform: scale(1.1); */
 }
 
 /* PREVIOUS CARDS */
 
 .second-section {
   padding: 20px;
-  margin-top: 10px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.second-section > nav > a > svg {
+  width: 40px;
 }
 
 .previous-header {
   font-family: var(--font1);
   color: var(--primary-gray);
   font-size: 26px;
+}
+
+.previous-header-2 {
+  font-family: var(--font1);
+  color: var(--primary-gray);
+  font-size: 24px;
+  margin-top: 65px;
+}
+
+.previous-items {
+  display: flex;
+  width: 350px;
+  margin: 0 auto;
 }
 
 .previous-card-wrapper {
@@ -132,7 +146,7 @@
   text-align: center;
 
   margin: 0 auto;
-  margin-right: 20px;
+  width: 85px;
 }
 
 .previous-card-icon {
