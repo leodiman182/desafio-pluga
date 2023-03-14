@@ -16,8 +16,34 @@ const Home = () => {
   const {
     // api, setApi, data, setData,
     setModalOpen, modalOpen,
-    selectedTool, setSelectedTool } = useContext(MainContext);
+    setSelectedTool, previouslySelected, setPreviouslySelected } = useContext(MainContext);
   const [inputValue, setInputValue] = useState('');
+
+  function handleToolSelect (el) {    
+    const array = previouslySelected;
+    
+    if (previouslySelected.length !== 0) {
+      const sameElement = previouslySelected.includes(el);
+      
+      if (sameElement) {
+        const arrayWithoutEl = previouslySelected.filter(index => index.app_id !== el.app_id);
+        
+        arrayWithoutEl.push(el);
+        setPreviouslySelected(arrayWithoutEl);
+        return
+      } else {
+        array.push(el);
+
+        if (previouslySelected.length > 4) {
+          array.shift();
+        }
+      }
+    } else {
+      array.push(el);
+    }
+    
+    setPreviouslySelected(array);
+  }
 
   useEffect(() => {
     if (!modalOpen) {
@@ -65,8 +91,6 @@ const Home = () => {
   //   console.log(data);
   // }, [api, data]);
 
-  console.log(selectedTool);
-
   return (
     <main className="app">
       {
@@ -97,6 +121,7 @@ const Home = () => {
               <ToolCard
                 onClick={() => {
                   setSelectedTool(el)
+                  handleToolSelect(el)
                   setModalOpen(true)
                 }}
                 key={ index }
