@@ -100,6 +100,9 @@ const Home = () => {
       }
       <Header />
       <article className='grid-section'>
+        <h2 className='grid-title'>
+          As ferramentas disponíveis na Pluga
+        </h2>
         <section className='grid-header'>
           <div className='input-wrapper'>
             <AiOutlineSearch className='search-icon' />

@@ -12,12 +12,23 @@
   padding-top: 40px;
 }
 
-.bar-div > h2 {
-  font-family: var(--font1);
-  text-align: center;
-  font-size: 28px;
-  color: var(--primary-gray);
-  padding: 0 20px;
+.bar-div > nav {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.media-icon {
+  fill: var(--primary-gray);
+  width: 25px;
+  margin-left: 10px;
+}
+
+.media-icon:hover {
+  transition-duration: 125ms;
+  transform: scale(1.1);
+  fill: var(--primary-blue);
 }
 
 .logo {
@@ -28,13 +39,14 @@
 
 @media (min-width: 840px) {
   .header-bar {
-    padding: 20px 0;
+    padding: 20px 0 0;
   }
 
   .bar-div {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-end;
     max-width: 1024px;
     margin: 0 auto;
     padding-top: 20px;
@@ -43,5 +55,10 @@
   .logo {
     width: 150px;
     height: auto;
+  }
+
+  .logo:hover {
+    transition-duration: 125ms;
+    transform: scale(1.1);
   }
 }
