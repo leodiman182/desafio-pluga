@@ -181,7 +181,7 @@
 }
 
 
-@media (min-width: 840px) {
+@media (min-width: 920px) {
   .bg-interface {
     opacity: 80%;
     background-color: black;

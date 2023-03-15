@@ -13,7 +13,7 @@
 
 .grid-section {
   margin: 0 auto;
-  padding: 20px 10px;
+  padding: 0 14px;
 }
 
 .grid-title {
@@ -21,7 +21,8 @@
   text-align: center;
   font-size: 25px;
   color: var(--primary-gray);
-  padding: 20px;
+  padding: 0 30px;
+  margin: 40px auto;
 }
 
 .grid-header {
@@ -170,7 +171,7 @@
   padding: 30px;
 }
 
-@media (min-width: 840px) {
+@media (min-width: 920px) {
   .grid-section {
     max-width: 1024px;
     margin: 0 auto;

@@ -1,29 +1,27 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import MainContext from '../../context/MainContext';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import ToolCard from '../../components/ToolCard';
 import Modal from '../../components/Modal';
 
 import { AiOutlineSearch, AiOutlineLoading } from "react-icons/ai";
 
 import './style.css';
-import Pagination from '../../components/Pagination';
+import PaginatedItems from '../../components/PaginatedItems/index';
 
 const Home = () => {
   const {
     api, setApi, data, setData,
-    setModalOpen, modalOpen,
+    modalOpen,
     setSelectedTool,
-    previouslySelected, setPreviouslySelected
   } = useContext(MainContext);
 
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const URL = 'https://pluga.co/ferramentas_search.json';
+    const URL = `https://pluga.co/ferramentas_search.json`;
 
     setLoading(true);
     axios
@@ -77,36 +75,6 @@ const Home = () => {
 
   }, [inputValue]);
 
-  const handleToolSelect = useCallback((el) => {
-    const array = previouslySelected;
-    
-    if (previouslySelected.length !== 0) {
-      const sameElement = previouslySelected.includes(el);
-      
-      if (sameElement) {
-        const arrayWithoutEl = previouslySelected.filter(index => index.app_id !== el.app_id);
-        
-        arrayWithoutEl.push(el);
-        setPreviouslySelected(arrayWithoutEl);
-        return
-      } else {
-        array.push(el);
-  
-        if (previouslySelected.length > 4) {
-          array.shift();
-        }
-      }
-    } else {
-      array.push(el);
-    }
-    
-    setPreviouslySelected(array);
-
-  }, [previouslySelected, setPreviouslySelected]);
-
-  // const handleScrollOnModal = useCallback(() => {
-  // }, []);
-
   return (
     <main className="app">
       {
@@ -148,28 +116,7 @@ const Home = () => {
           ) : api.length === 0 ? (
             <p className='not-found'>Não encontramos nenhuma ferramenta :(</p>
           ) : (
-            <>
-              <section className='grid-wrapper'>
-                {
-                  api.map((el, index) => (
-                    <ToolCard
-                      onClick={() => {
-                        setSelectedTool(el)
-                        handleToolSelect(el)
-                        setModalOpen(true)
-                      }}
-                      key={ index }
-                      id={ el.app_id }
-                      name={ el.name }
-                      color={ el.color }
-                      icon={ el.icon }
-                      link={ el.link }
-                    />
-                  ))
-                }
-              </section>
-              <Pagination />
-            </>
+            <PaginatedItems itemsPerPage={12} />
           )
         }
 

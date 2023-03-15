@@ -37,7 +37,7 @@
   margin: 10px auto 0;
 }
 
-@media (min-width: 840px) {
+@media (min-width: 920px) {
   .card-wrapper {
     grid-column: span 1 / span 1;
     display: flex;

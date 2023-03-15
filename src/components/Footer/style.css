@@ -39,7 +39,7 @@
   transition-duration: 150ms;
 }
 
-@media (min-width: 840px) {
+@media (min-width: 920px) {
   .footer-bar-div {
     display: flex;
     flex-direction: row;
