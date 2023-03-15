@@ -34,6 +34,13 @@
   text-decoration: underline;
 }
 
+.paginate-wrapper > li {
+  font-family: var(--font2);
+  color: var(--primary-gray);
+  margin: 0 6px;
+  padding: 4px;
+}
+
 .left-arrow,
 .right-arrow {
   fill: var(--primary-gray);
@@ -45,6 +52,13 @@
   transition-duration: 125ms;
   cursor: pointer;
 }
+
+.previous.disabled > a > svg ,
+.next.disabled > a > svg  {
+  fill: var(--second-gray);
+  cursor: default;
+}
+
 
 @media (min-width: 920px) {  
   .pagination-wrapper {

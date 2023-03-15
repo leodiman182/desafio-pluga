@@ -15,6 +15,8 @@ function TeiaProvider({ children }) {
     link: ""
   });
 
+  const [searchInput, setSearchInput] = useState('');
+
   const socialLinks = [
     {
       name: 'Linkedin',
@@ -35,6 +37,7 @@ function TeiaProvider({ children }) {
     modalOpen, setModalOpen,
     previouslySelected, setPreviouslySelected,
     selectedTool, setSelectedTool,
+    searchInput, setSearchInput,
     socialLinks,
   }
 

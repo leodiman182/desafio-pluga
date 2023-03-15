@@ -2,8 +2,8 @@ import { useCallback, useContext } from "react";
 import MainContext from "../../context/MainContext";
 import ToolCard from "../ToolCard";
 
-function Items() {
-  const { api, setSelectedTool, setModalOpen,
+function Items({currentItems}) {
+  const { setSelectedTool, setModalOpen,
     previouslySelected, setPreviouslySelected
   } = useContext(MainContext);
 
@@ -36,7 +36,7 @@ function Items() {
   return (
     <section className='grid-wrapper'>
       {
-        api
+        currentItems
           .map((el, index) => (
           <ToolCard
             onClick={() => {

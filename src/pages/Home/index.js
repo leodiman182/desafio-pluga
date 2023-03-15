@@ -5,19 +5,21 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 
-import { AiOutlineSearch, AiOutlineLoading } from "react-icons/ai";
+import { AiOutlineLoading } from "react-icons/ai";
 
 import './style.css';
 import PaginatedItems from '../../components/PaginatedItems/index';
+import SearchSection from '../../components/SearchSection';
+import Illustration from '../../assets/illustration.';
 
 const Home = () => {
   const {
     api, setApi, data, setData,
     modalOpen,
     setSelectedTool,
+    searchInput
   } = useContext(MainContext);
 
-  const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -68,12 +70,12 @@ const Home = () => {
   }, [modalOpen]);
 
   useEffect(() => {
-    const newList = inputValue !== '' ? data.filter(query => query?.name?.toLowerCase().match(inputValue?.toLowerCase()))
+    const newList = searchInput !== '' ? data.filter(query => query?.name?.toLowerCase().match(searchInput?.toLowerCase()))
     : data;
 
     setApi(newList);
 
-  }, [inputValue]);
+  }, [searchInput]);
 
   return (
     <main className="app">
@@ -84,28 +86,7 @@ const Home = () => {
       }
       <Header />
       <article className='grid-section'>
-        <h2 className='grid-title'>
-          As ferramentas disponíveis na Pluga
-        </h2>
-        <section className='grid-header'>
-          <div className='input-wrapper'>
-            <AiOutlineSearch className='search-icon' />
-            <input
-              onChange={(e) => setInputValue(e.target.value)}
-              value={ inputValue }
-              className='search-input'
-              placeholder='Buscar ferramenta'
-              type="text"
-            />
-          </div>
-          <button onClick={() => {
-            setApi(data)
-            setInputValue('')
-          }} className='button'>
-            EXIBIR TODAS
-          </button>
-        </section>
-
+        <SearchSection />
         {
           loading ? (
             <div className='loading-wrapper'>
@@ -114,12 +95,14 @@ const Home = () => {
               </div>
             </div>
           ) : api.length === 0 ? (
-            <p className='not-found'>Não encontramos nenhuma ferramenta :(</p>
+            <div className='not-found'>
+              <p>Não encontramos nenhuma ferramenta...</p>
+              <Illustration />
+            </div>
           ) : (
             <PaginatedItems itemsPerPage={12} />
           )
         }
-
       </article>
       <Footer />
     </main>
