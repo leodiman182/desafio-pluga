@@ -48,18 +48,15 @@ const Home = () => {
         setData(newArray);
         setLoading(false);
       })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [])
 
   useEffect(() => {
-    const newList = inputValue !== ' '
-    ? data.filter(query => query?.name?.toLowerCase().match(inputValue?.toLowerCase()))
-    : setApi(data);
+    const newList = inputValue !== '' ? data.filter(query => query?.name?.toLowerCase().match(inputValue?.toLowerCase()))
+    : data;
 
-    setApi(newList)
+    setApi(newList);
 
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
   const handleToolSelect = useCallback((el) => {
@@ -99,7 +96,7 @@ const Home = () => {
         link: ""
       })
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [modalOpen]);
 
   return (
@@ -125,7 +122,10 @@ const Home = () => {
               type="text"
             />
           </div>
-          <button onClick={() => setApi(data)} className='button'>
+          <button onClick={() => {
+            setApi(data)
+            setInputValue('')
+          }} className='button'>
             EXIBIR TODAS
           </button>
         </section>
