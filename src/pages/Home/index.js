@@ -9,6 +9,7 @@ import Modal from '../../components/Modal';
 import { AiOutlineSearch, AiOutlineLoading } from "react-icons/ai";
 
 import './style.css';
+import Pagination from '../../components/Pagination';
 
 const Home = () => {
   const {
@@ -21,9 +22,9 @@ const Home = () => {
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const URL = 'https://pluga.co/ferramentas_search.json';
-
   useEffect(() => {
+    const URL = 'https://pluga.co/ferramentas_search.json';
+
     setLoading(true);
     axios
       .get(URL)
@@ -49,7 +50,24 @@ const Home = () => {
         setLoading(false);
       })
 
-  }, [])
+  }, []);
+
+  useEffect(() => {    
+    if (!modalOpen) {
+      document.body.style.overflow = 'unset';
+      setSelectedTool({
+        app_id: "",
+        name: "",
+        color: "",
+        icon: "",
+        link: ""
+      });
+      
+      return
+    }
+
+    document.body.style.overflow = 'hidden';
+  }, [modalOpen]);
 
   useEffect(() => {
     const newList = inputValue !== '' ? data.filter(query => query?.name?.toLowerCase().match(inputValue?.toLowerCase()))
@@ -86,18 +104,8 @@ const Home = () => {
 
   }, [previouslySelected, setPreviouslySelected]);
 
-  useEffect(() => {
-    if (!modalOpen) {
-      setSelectedTool({
-        app_id: "",
-        name: "",
-        color: "",
-        icon: "",
-        link: ""
-      })
-    }
-
-  }, [modalOpen]);
+  // const handleScrollOnModal = useCallback(() => {
+  // }, []);
 
   return (
     <main className="app">
@@ -160,13 +168,8 @@ const Home = () => {
                   ))
                 }
               </section>
-              <div className='pagination-wrapper'>
-                <p className='pagination-title'>
-                  Página 1 de 4
-                </p>
-              </div>            
+              <Pagination />
             </>
-
           )
         }
 

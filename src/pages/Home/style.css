@@ -5,6 +5,10 @@
   height: 100vh;
 }
 
+.modal-open {
+  overflow-y: hidden;
+}
+
 /* GRID HEADER */
 
 .grid-section {
@@ -164,20 +168,6 @@
   height: 173.84px;
   margin: 60px auto;
   padding: 30px;
-}
-
-.pagination-wrapper {
-  display: flex;
-  max-width: 922px;
-  align-items: center;
-  justify-items: center;
-  background-color: antiquewhite;
-  
-  margin-top: 20px;
-}
-
-.pagination-title {
-  text-align: center;
 }
 
 @media (min-width: 840px) {

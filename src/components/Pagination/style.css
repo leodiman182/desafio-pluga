@@ -1,0 +1,22 @@
+.pagination-wrapper {
+  display: flex;
+  max-width: 922px;
+  align-items: center;
+  justify-items: center;
+  background-color: antiquewhite;
+  
+  margin-top: 20px;
+}
+
+.pagination-title {
+  text-align: center;
+}
+
+@media (min-width: 840px) {  
+  .pagination-wrapper {
+    display: flex;
+    max-width: 922px;
+    background-color: antiquewhite;
+    margin: 30px auto;
+  }
+}

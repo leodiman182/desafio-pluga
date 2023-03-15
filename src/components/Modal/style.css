@@ -183,8 +183,8 @@
 
 @media (min-width: 840px) {
   .bg-interface {
-    opacity: 60%;
-    background-color: var(--primary-gray);
+    opacity: 80%;
+    background-color: black;
   }
   
   .modal-wrapper {
