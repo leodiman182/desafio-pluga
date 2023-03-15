@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import MainContext from '../../context/MainContext';
 import Header from '../../components/Header';
@@ -52,17 +52,17 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    const newList = inputValue !== ''
-    ? data.filter(query => query.name.toLowerCase().match(inputValue.toLowerCase()))
+    const newList = inputValue !== ' '
+    ? data.filter(query => query?.name?.toLowerCase().match(inputValue?.toLowerCase()))
     : setApi(data);
 
     setApi(newList)
 
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inputValue])
+  }, [inputValue]);
 
-  function handleToolSelect (el) {    
+  const handleToolSelect = useCallback((el) => {
     const array = previouslySelected;
     
     if (previouslySelected.length !== 0) {
@@ -76,7 +76,7 @@ const Home = () => {
         return
       } else {
         array.push(el);
-
+  
         if (previouslySelected.length > 4) {
           array.shift();
         }
@@ -86,7 +86,8 @@ const Home = () => {
     }
     
     setPreviouslySelected(array);
-  }
+
+  }, [previouslySelected, setPreviouslySelected]);
 
   useEffect(() => {
     if (!modalOpen) {
@@ -99,7 +100,7 @@ const Home = () => {
       })
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [modalOpen])
+  }, [modalOpen]);
 
   return (
     <main className="app">
