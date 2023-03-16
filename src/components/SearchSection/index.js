@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
 import MainContext from '../../context/MainContext';
 
+import './style.css'
 
 const SearchSection = () => {
-  const { searchInput, setSearchInput, setApi, data  } = useContext(MainContext);
+  const { searchInput, setSearchInput, setApi, data, previouslySelected  } = useContext(MainContext);
 
   return ( 
     <>
@@ -22,12 +23,20 @@ const SearchSection = () => {
             type="text"
           />
         </div>
-        <button onClick={() => {
-          setApi(data)
-          setSearchInput('')
-        }} className='button'>
-          EXIBIR TODAS
-        </button>
+        <aside className='buttons-section'>
+          <button onClick={() => {
+            setApi(data)
+            setSearchInput('')
+          }} className='button'>
+            EXIBIR TODAS
+          </button>
+          <button onClick={() => {
+            setApi(previouslySelected)
+            setSearchInput('')
+          }} className='button'>
+            EXIBIR ÚLTIMAS
+          </button>
+        </aside>
       </section>    
     </>
   )
