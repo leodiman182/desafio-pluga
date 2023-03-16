@@ -12,6 +12,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 200px;
+  padding: 0 25px;
+  margin: 0 auto;
 }
 
 .input-wrapper {
@@ -19,6 +22,7 @@
 }
 
 .input-wrapper > input {
+  width: 160px;
   -webkit-transition: all .3s ease;
   -moz-transition: all .3s ease;
   transition: all .3s ease;
@@ -33,7 +37,7 @@
   font-family: var(--font2);
   outline-color: var(--primary-blue);
   color: black;
-  padding: 10px 10px 10px 35px;
+  padding: 10px 10px 10px 30px;
   margin: 0 auto 20px;
   box-shadow: none;
 }
@@ -53,8 +57,10 @@
 } 
 
 .buttons-section {
+  width: 200px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .button {
@@ -85,8 +91,13 @@
     padding: 0 20px;
   }
 
+  .input-wrapper > input {
+    width: 254px;
+  }
+
   .buttons-section {
     flex-direction: row;
+    width: 316px;
   }
 
   .button {

@@ -25,18 +25,14 @@
   color: var(--primary-gray)
 }
 
-
 .footer-box > p {
   text-align: center;
 }
 
 .footer-box > p > a {
-  color: inherit; /* blue colors for links too */
-  text-decoration: inherit; /* no underline */
-}
-.footer-box > p > a:hover {
-  color: var(--primary-blue);
-  transition-duration: 150ms;
+  font-weight: 600;
+  color: #d64e95;
+  text-decoration: inherit;
 }
 
 @media (min-width: 920px) {
@@ -46,15 +42,25 @@
     justify-content: space-between;
     align-items: center;
   }
-
+  
   .footer-logo {
     width: 50px;
     height: auto;
-
+    
     margin: 0px;
   }
   
   .footer-box > p {
     text-align: left;
+  }
+  
+  .footer-box > p > a {
+    color: inherit;
+    transition-duration: 150ms;
+  }
+
+  .footer-box > p > a:hover {
+    color: #d64e95;
+    transition-duration: 150ms;
   }
 }
