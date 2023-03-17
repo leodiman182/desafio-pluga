@@ -7,6 +7,17 @@
   margin: 40px auto;
 }
 
+.grid-subtitle {
+  font-family: var(--font2);
+  text-transform: uppercase;
+  text-align: right;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--primary-gray);
+  padding: 0 30px;
+  margin: 60px auto -30px;
+}
+
 .grid-header {
   display: flex;
   flex-direction: column;
@@ -85,12 +96,16 @@
 @media (min-width: 920px) {
   .grid-title {
     font-family: var(--font1);
-    text-align: center;
     font-size: 28px;
     color: var(--primary-gray);
     padding: 0 20px;
   }
-
+  
+  .grid-subtitle {
+    font-size: 18px;
+    margin: 60px auto -40px;
+  }
+  
   .input-wrapper > input {
     width: 254px;
   }
@@ -99,7 +114,7 @@
     flex-direction: row;
     width: 316px;
   }
-
+  
   .button {
     margin: 0 10px;
   }

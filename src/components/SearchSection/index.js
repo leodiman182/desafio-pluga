@@ -5,9 +5,7 @@ import MainContext from '../../context/MainContext';
 import './style.css'
 
 const SearchSection = () => {
-  const { searchInput, setSearchInput, setApi, data, previouslySelected, setItemOffset  } = useContext(MainContext);
-
-  console.log(previouslySelected);
+  const { searchInput, setSearchInput, setApi, data, previouslySelected, setItemOffset } = useContext(MainContext);
 
   return ( 
     <>
@@ -18,7 +16,10 @@ const SearchSection = () => {
         <div className='input-wrapper'>
           <AiOutlineSearch className='search-icon' />
           <input
-            onChange={(e) => setSearchInput(e.target.value)}
+            onChange={(e) => {
+              setSearchInput(e.target.value)
+              setItemOffset(0)
+            }}
             value={ searchInput }
             className='search-input'
             placeholder='Buscar ferramenta'
@@ -40,6 +41,9 @@ const SearchSection = () => {
             EXIBIR ÚLTIMAS
           </button>
         </aside>
+        {/* <h4 className='grid-subtitle'>
+          {stateMessage}
+        </h4> */}
       </section>    
     </>
   )

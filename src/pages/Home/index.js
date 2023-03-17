@@ -17,7 +17,7 @@ const Home = () => {
     api, setApi, data, setData,
     modalOpen,
     setSelectedTool,
-    searchInput
+    searchInput,
   } = useContext(MainContext);
 
   const [loading, setLoading] = useState(true);
@@ -51,6 +51,23 @@ const Home = () => {
       })
 
   }, []);
+
+  // useEffect(() => {
+  //   const handlePageNumber = () => {
+  //     if (itemOffset === 0 ) {
+  //       setPage(1)
+  //     }
+
+  //     const newPage = (itemOffset / 12) + 1;
+  //     setPage(newPage)
+  //   }
+
+  //   handlePageNumber()
+  // }, [itemOffset])
+  
+  // useEffect(() => {
+  //   setStateMessage(`Página ${page}`)
+  // }, [page])
 
   useEffect(() => {    
     if (!modalOpen) {

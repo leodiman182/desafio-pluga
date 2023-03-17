@@ -10,14 +10,11 @@ const left = <AiFillCaretLeft size={'2em'} className='left-arrow' />
 const right = <AiFillCaretRight size={'2em'} className='left-arrow' />
 
 function PaginatedItems({ itemsPerPage }) {
-  const { api, itemOffset, setItemOffset, previouslySelected } = useContext(MainContext);
+  const { api, itemOffset, setItemOffset } = useContext(MainContext);
 
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = api.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(api.length / itemsPerPage);
-
-  console.log(previouslySelected);
-  console.log(itemOffset);
 
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % api.length;

@@ -9,6 +9,7 @@ function TeiaProvider({ children }) {
   
   const [modalOpen, setModalOpen] = useState(false);
   const [previouslySelected, setPreviouslySelected] = useState([]);
+
   const [selectedTool, setSelectedTool] = useState({
     app_id: "",
     name: "",
@@ -32,6 +33,9 @@ function TeiaProvider({ children }) {
       // '
     },
   ];
+
+  // const [page, setPage] = useState(1);
+  // const [stateMessage, setStateMessage] = useState(`Página 1`);
   
   const context = {
     api, setApi,
@@ -42,6 +46,8 @@ function TeiaProvider({ children }) {
     selectedTool, setSelectedTool,
     searchInput, setSearchInput,
     socialLinks,
+    // page, setPage,
+    // stateMessage, setStateMessage,
   }
 
   return (
