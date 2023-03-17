@@ -4,6 +4,8 @@ import MainContext from './MainContext';
 function TeiaProvider({ children }) {
   const [api, setApi] = useState([]);
   const [data, setData] = useState([]);
+
+  const [itemOffset, setItemOffset] = useState(0);
   
   const [modalOpen, setModalOpen] = useState(false);
   const [previouslySelected, setPreviouslySelected] = useState([]);
@@ -35,6 +37,7 @@ function TeiaProvider({ children }) {
     api, setApi,
     data, setData,
     modalOpen, setModalOpen,
+    itemOffset, setItemOffset,
     previouslySelected, setPreviouslySelected,
     selectedTool, setSelectedTool,
     searchInput, setSearchInput,

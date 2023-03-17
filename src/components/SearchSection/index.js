@@ -5,7 +5,9 @@ import MainContext from '../../context/MainContext';
 import './style.css'
 
 const SearchSection = () => {
-  const { searchInput, setSearchInput, setApi, data, previouslySelected  } = useContext(MainContext);
+  const { searchInput, setSearchInput, setApi, data, previouslySelected, setItemOffset  } = useContext(MainContext);
+
+  console.log(previouslySelected);
 
   return ( 
     <>
@@ -32,6 +34,7 @@ const SearchSection = () => {
           </button>
           <button onClick={() => {
             setApi(previouslySelected)
+            setItemOffset(0)
             setSearchInput('')
           }} className='button'>
             EXIBIR ÚLTIMAS
