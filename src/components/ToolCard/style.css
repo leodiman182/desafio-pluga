@@ -53,7 +53,7 @@
   }
 
   .card-wrapper:hover {
-    border: var(--primary-blue 2px solid)
+    border: transparent 2px solid;
   }
 
   .card-name {

@@ -6,7 +6,7 @@ const ToolCard = ({
 }) => {
 
   return (
-    <div style={{ backgroundColor: color }}onClick={onClick} className='card-wrapper'>
+    <div style={{ backgroundColor: color }} onClick={onClick} className='card-wrapper'>
       <img className="card-icon" src={ icon } alt="" />
       <p className='card-name'>{ name }</p>
     </div>
