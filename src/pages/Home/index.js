@@ -5,12 +5,11 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Modal from '../../components/Modal';
 
-import { AiOutlineLoading } from "react-icons/ai";
-
 import './style.css';
 import PaginatedItems from '../../components/PaginatedItems/index';
 import SearchSection from '../../components/SearchSection';
 import Illustration from '../../assets/illustration.';
+import Loading from '../../components/Loading';
 
 const Home = () => {
   const {
@@ -106,11 +105,7 @@ const Home = () => {
         <SearchSection />
         {
           loading ? (
-            <div className='loading-wrapper'>
-              <div>
-                <AiOutlineLoading size={'3.5em'} className='rotating' />
-              </div>
-            </div>
+            <Loading />
           ) : api.length === 0 ? (
             <div className='not-found'>
               <p>Não encontramos nenhuma ferramenta...</p>
