@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MainContext from './MainContext';
 
-function TeiaProvider({ children }) {
+function MainProvider({ children }) {
   const [api, setApi] = useState([]);
   const [data, setData] = useState([]);
 
@@ -57,4 +57,4 @@ function TeiaProvider({ children }) {
   )
 }
 
-export default TeiaProvider;
+export default MainProvider;
