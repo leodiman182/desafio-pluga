@@ -42,4 +42,16 @@ describe("Home page", () => {
     expect(buttonLatest).toBeInTheDocument();
     expect(buttonLatest).toHaveTextContent("EXIBIR ÚLTIMAS");
   });
+
+  it("should be rendered with the Pluga tools section", () => {
+    render(
+      <MainProvider>
+        <App />
+      </MainProvider>
+    );
+
+    const toolsSection = screen.getByTestId("tools-section");
+
+    expect(toolsSection).toBeInTheDocument();
+  });
 });

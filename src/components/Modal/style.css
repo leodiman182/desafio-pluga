@@ -40,26 +40,26 @@
 
 .close-icon:hover {
   opacity: 100%;
-  fill:white;
+  fill: white;
   cursor: pointer;
   transition-duration: 125ms;
 }
 
 .custom-shape-divider-top-1678817539 {
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
 
 .custom-shape-divider-top-1678817539 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 50px;
-    transform: rotateY(180deg);
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+  transform: rotateY(180deg);
 }
 
 /* .custom-shape-divider-top-1678817539 .shape-fill {
@@ -141,7 +141,7 @@
 .previous-card-wrapper {
   display: inline-flex;
   text-decoration: none;
-  flex-direction: column;  
+  flex-direction: column;
   align-items: center;
   text-align: center;
 
@@ -180,13 +180,12 @@
   color: var(--primary-blue);
 }
 
-
 @media (min-width: 920px) {
   .bg-interface {
     opacity: 80%;
     background-color: black;
   }
-  
+
   .modal-wrapper {
     position: fixed;
     top: calc(50% - 200px);
@@ -213,7 +212,7 @@
   .modal-info-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     justify-items: center;
     margin-left: 40px;
     text-align: right;

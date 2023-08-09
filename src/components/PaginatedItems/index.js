@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import ReactPaginate from 'react-paginate';
+import React, { useContext } from "react";
+import ReactPaginate from "react-paginate";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import './style.css';
+import "./style.css";
 
-import MainContext from '../../context/MainContext';
-import Items from './Items';
+import MainContext from "../../context/MainContext";
+import Items from "./Items";
 
-const left = <AiFillCaretLeft size={'2em'} className='left-arrow' />
-const right = <AiFillCaretRight size={'2em'} className='left-arrow' />
+const left = <AiFillCaretLeft size={"2em"} className="left-arrow" />;
+const right = <AiFillCaretRight size={"2em"} className="left-arrow" />;
 
 function PaginatedItems({ itemsPerPage }) {
   const { api, itemOffset, setItemOffset } = useContext(MainContext);
@@ -25,7 +25,7 @@ function PaginatedItems({ itemsPerPage }) {
     <>
       <Items currentItems={currentItems} />
       <ReactPaginate
-        className='paginate-wrapper'
+        className="paginate-wrapper"
         breakLabel="..."
         nextLabel={right}
         onPageChange={handlePageClick}
