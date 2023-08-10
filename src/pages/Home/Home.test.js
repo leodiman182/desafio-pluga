@@ -32,15 +32,18 @@ describe("Home page", () => {
     expect(buttonLatest).toHaveTextContent("EXIBIR ÚLTIMAS");
   });
 
+  it("should be rendered with the Pluga tools section", () => {
+    render(<App />);
+
+    // const section = screen.getByTestId("tools-section");
+    const loading = screen.getByTestId("loading");
+
+    expect(loading).toBeInTheDocument();
+  });
+
   // it("should be rendered with the Pluga tools section", () => {
-  //   const toolSection = screen.getByTestId("tools-section");
+  //   render(<App />);
 
-  //   render(
-  //     <MainContext.Provider value={}>
-  //       <App />
-  //     </MainContext.Provider>
-  //   );
-
-  //   expect(toolSection).toBeInTheDocument();
+  //   expect(loading).toBeInTheDocument();
   // });
 });

@@ -81,26 +81,20 @@
     font-family: var(--font1);
     font-size: 26px;
   }
-  
+
   .illustration {
     width: 250px;
     height: auto;
   }
-  
-  .grid-header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  
+
   .input-wrapper > input {
     margin: 0;
   }
-  
+
   .button {
     margin-left: 20px;
   }
-  
+
   .pagination-wrapper {
     display: flex;
     max-width: 922px;

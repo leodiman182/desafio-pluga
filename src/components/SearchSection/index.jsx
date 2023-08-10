@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import MainContext from "../../context/MainContext";
+import Button from "../Button";
 import "./style.css";
 
 const SearchSection = () => {
@@ -34,27 +35,25 @@ const SearchSection = () => {
           />
         </div>
         <aside className="buttons-section">
-          <button
-            data-testid="button-show-all"
+          <Button
+            testID="button-show-all"
             onClick={() => {
               setApi(data);
               setSearchInput("");
             }}
-            className="button"
           >
             EXIBIR TODAS
-          </button>
-          <button
-            data-testid="button-show-latest"
+          </Button>
+          <Button
+            testID="button-show-latest"
             onClick={() => {
               setApi(previouslySelected);
               setItemOffset(0);
               setSearchInput("");
             }}
-            className="button"
           >
             EXIBIR ÚLTIMAS
-          </button>
+          </Button>
         </aside>
       </section>
     </>
