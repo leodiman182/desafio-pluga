@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import MainContext from "./MainContext";
+import { createContext, useState } from "react";
+import { mockApi } from "./api";
 
-function MainProvider({ children }) {
+const MockContext = createContext();
+
+function MockProvider({ children }) {
   const [loading, setLoading] = useState(false);
 
-  const [api, setApi] = useState([]);
-  const [data, setData] = useState([]);
+  const [api, setApi] = useState(mockApi);
+  const [data, setData] = useState(mockApi);
 
   const [itemOffset, setItemOffset] = useState(0);
 
@@ -77,8 +79,8 @@ function MainProvider({ children }) {
   };
 
   return (
-    <MainContext.Provider value={context}>{children}</MainContext.Provider>
+    <MockContext.Provider value={context}>{children}</MockContext.Provider>
   );
 }
 
-export default MainProvider;
+export default MockProvider;

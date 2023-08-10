@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import React, { useContext, useEffect } from "react";
 import MainContext from "../../context/MainContext";
+import SearchSection from "../../components/SearchSection";
+import PaginatedItems from "../../components/PaginatedItems/index";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Modal from "../../components/Modal";
-
-import "./style.css";
-import PaginatedItems from "../../components/PaginatedItems/index";
-import SearchSection from "../../components/SearchSection";
-import Illustration from "../../assets/illustration.";
 import Loading from "../../components/Loading";
+import Illustration from "../../assets/illustration.";
+import "./style.css";
+import fetchAPI from "../../utils/request";
+import sortResponse from "../../utils/sort";
 
 const Home = () => {
   const {
@@ -20,30 +20,13 @@ const Home = () => {
     modalOpen,
     setSelectedTool,
     searchInput,
+    loading,
+    setLoading,
   } = useContext(MainContext);
 
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const URL = `https://pluga.co/ferramentas_search.json`;
-
-    setLoading(true);
-    axios.get(URL).then((res) => {
-      const array = res.data;
-
-      const newArray = array.sort((a, b) => {
-        let fa = a.name.toLowerCase(),
-          fb = b.name.toLowerCase();
-
-        if (fa < fb) {
-          return -1;
-        }
-        if (fa > fb) {
-          return 1;
-        }
-
-        return 0;
-      });
+    fetchAPI().then((response) => {
+      const newArray = sortResponse(response);
 
       setApi(newArray);
       setData(newArray);
