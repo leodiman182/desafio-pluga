@@ -6,7 +6,6 @@
   font-weight: 700;
   color: var(--primary-blue);
   padding: 10px;
-  margin: 10px 0;
 }
 
 .button:hover {
@@ -15,10 +14,4 @@
   cursor: pointer;
   transition-duration: 125ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media (min-width: 920px) {
-  .button {
-    margin: 0 10px;
-  }
 }
