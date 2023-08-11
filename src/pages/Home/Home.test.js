@@ -32,17 +32,34 @@ describe("Home page", () => {
     expect(buttonLatest).toHaveTextContent("EXIBIR ÚLTIMAS");
   });
 
-  // it("should be rendered with the Pluga tools section", () => {
-  //   render(<App />);
+  it("should be rendered with a checkbox option", () => {
+    render(<App />);
 
-  //   const loading = screen.getByTestId("loading");
+    const checkbox = screen.getByTestId("checkbox-order");
+    const label = screen.getByTestId("checkbox-label");
 
-  //   expect(loading).toBeInTheDocument();
-  // });
+    expect(checkbox).toBeInTheDocument();
+    expect(label).toHaveTextContent("Organizar em ordem alfabética");
+  });
 
-  // it("should be rendered with the Pluga tools section", () => {
-  //   render(<App />);
+  it("should be rendered with the tools section", () => {
+    render(<App />);
+    const tools = screen.getByTestId("tools-section");
 
-  //   expect(loading).toBeInTheDocument();
-  // });
+    expect(tools).toBeInTheDocument();
+  });
+
+  it("should be rendered with the right amount of tool cards", () => {
+    render(<App />);
+    const tools = screen.getAllByTestId("tool-card");
+
+    expect(tools).toHaveLength(12);
+  });
+
+  it("should be rendered with the footer element", () => {
+    render(<App />);
+    const tools = screen.getByTestId("footer");
+
+    expect(tools).toBeInTheDocument();
+  });
 });

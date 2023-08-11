@@ -8,12 +8,15 @@ export default function Checkbox({ id, label }) {
   return (
     <>
       <input
+        data-testid="checkbox-order"
         onChange={() => setAlphaCheck(!alphaCheck)}
         id={`input-${id}`}
         type="checkbox"
         checked={alphaCheck}
       />
-      <label htmlFor={`input-${id}`}>{label}</label>
+      <label data-testid="checkbox-label" htmlFor={`input-${id}`}>
+        {label}
+      </label>
     </>
   );
 }
