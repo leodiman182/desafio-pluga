@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import MainContext from "./MainContext";
+import { TOOLS_JSON } from "../utils/json";
 
 function MainProvider({ children }) {
   const [loading, setLoading] = useState(false);
-
-  const [api, setApi] = useState([]);
-  const [data, setData] = useState([]);
-
+  const [usableApi, setUsableApi] = useState(TOOLS_JSON);
+  const [alphaCheck, setAlphaCheck] = useState(false);
   const [itemOffset, setItemOffset] = useState(0);
-
   const [modalOpen, setModalOpen] = useState(false);
   const [previouslySelected, setPreviouslySelected] = useState([]);
 
@@ -52,17 +50,14 @@ function MainProvider({ children }) {
         </svg>
       ),
       link: "https://www.instagram.com/pluga.co/",
-      // '
     },
   ];
 
   const context = {
     loading,
     setLoading,
-    api,
-    setApi,
-    data,
-    setData,
+    usableApi,
+    setUsableApi,
     modalOpen,
     setModalOpen,
     itemOffset,
@@ -74,6 +69,8 @@ function MainProvider({ children }) {
     searchInput,
     setSearchInput,
     socialLinks,
+    alphaCheck,
+    setAlphaCheck,
   };
 
   return (

@@ -1,23 +1,23 @@
 import React, { useContext } from "react";
 import ReactPaginate from "react-paginate";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import "./style.css";
 
 import MainContext from "../../context/MainContext";
 import Items from "./Items";
+import "./style.css";
 
 const left = <AiFillCaretLeft size={"2em"} className="left-arrow" />;
 const right = <AiFillCaretRight size={"2em"} className="left-arrow" />;
 
 function PaginatedItems({ itemsPerPage }) {
-  const { api, itemOffset, setItemOffset } = useContext(MainContext);
+  const { usableApi, itemOffset, setItemOffset } = useContext(MainContext);
 
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = api.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(api.length / itemsPerPage);
+  const currentItems = usableApi.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(usableApi.length / itemsPerPage);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % api.length;
+    const newOffset = (event.selected * itemsPerPage) % usableApi.length;
     setItemOffset(newOffset);
   };
 

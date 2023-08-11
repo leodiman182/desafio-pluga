@@ -2,16 +2,18 @@ import React, { useContext } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import MainContext from "../../context/MainContext";
 import Button from "../Button";
+import Checkbox from "../Checkbox";
+import { TOOLS_JSON, ORDERED_TOOLS_JSON } from "../../utils/json";
 import "./style.css";
 
 const SearchSection = () => {
   const {
     searchInput,
     setSearchInput,
-    setApi,
-    data,
+    setUsableApi,
     previouslySelected,
     setItemOffset,
+    alphaCheck,
   } = useContext(MainContext);
 
   return (
@@ -38,8 +40,13 @@ const SearchSection = () => {
           <Button
             testID="button-show-all"
             onClick={() => {
-              setApi(data);
-              setSearchInput("");
+              if (alphaCheck) {
+                setUsableApi(ORDERED_TOOLS_JSON);
+                setSearchInput("");
+              } else {
+                setUsableApi(TOOLS_JSON);
+                setSearchInput("");
+              }
             }}
           >
             EXIBIR TODAS
@@ -47,7 +54,7 @@ const SearchSection = () => {
           <Button
             testID="button-show-latest"
             onClick={() => {
-              setApi(previouslySelected);
+              setUsableApi(previouslySelected);
               setItemOffset(0);
               setSearchInput("");
             }}
@@ -55,6 +62,12 @@ const SearchSection = () => {
             EXIBIR ÚLTIMAS
           </Button>
         </aside>
+        <article className="checkbox-section">
+          <Checkbox
+            id="check-alphabetical"
+            label="Organizar em ordem alfabética"
+          />
+        </article>
       </section>
     </>
   );

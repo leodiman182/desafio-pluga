@@ -8,31 +8,17 @@ import Modal from "../../components/Modal";
 import Loading from "../../components/Loading";
 import Illustration from "../../assets/illustration.";
 import "./style.css";
-import fetchAPI from "../../utils/request";
-import sortResponse from "../../utils/sort";
+import { TOOLS_JSON } from "../../utils/json";
 
 const Home = () => {
   const {
-    api,
-    setApi,
-    data,
-    setData,
+    usableApi,
+    setUsableApi,
     modalOpen,
     setSelectedTool,
     searchInput,
     loading,
-    setLoading,
   } = useContext(MainContext);
-
-  useEffect(() => {
-    fetchAPI().then((response) => {
-      const newArray = sortResponse(response);
-
-      setApi(newArray);
-      setData(newArray);
-      setLoading(false);
-    });
-  }, []);
 
   useEffect(() => {
     if (!modalOpen) {
@@ -54,12 +40,12 @@ const Home = () => {
   useEffect(() => {
     const newList =
       searchInput !== ""
-        ? data.filter((query) =>
+        ? TOOLS_JSON.filter((query) =>
             query?.name?.toLowerCase().match(searchInput?.toLowerCase())
           )
-        : data;
+        : TOOLS_JSON;
 
-    setApi(newList);
+    setUsableApi(newList);
   }, [searchInput]);
 
   return (
@@ -70,7 +56,7 @@ const Home = () => {
         <SearchSection />
         {loading ? (
           <Loading />
-        ) : api.length === 0 ? (
+        ) : usableApi.length === 0 ? (
           <div className="not-found">
             <p>Não encontramos nenhuma ferramenta...</p>
             <Illustration />
