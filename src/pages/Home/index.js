@@ -1,124 +1,73 @@
-import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
-import MainContext from '../../context/MainContext';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Modal from '../../components/Modal';
-
-import './style.css';
-import PaginatedItems from '../../components/PaginatedItems/index';
-import SearchSection from '../../components/SearchSection';
-import Illustration from '../../assets/illustration.';
-import Loading from '../../components/Loading';
+import React, { useContext, useEffect } from "react";
+import MainContext from "../../context/MainContext";
+import SearchSection from "../../components/SearchSection";
+import PaginatedItems from "../../components/PaginatedItems/index";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import Modal from "../../components/Modal";
+import Loading from "../../components/Loading";
+import Illustration from "../../assets/illustration.";
+import "./style.css";
+import { TOOLS_JSON } from "../../utils/json";
 
 const Home = () => {
   const {
-    api, setApi, data, setData,
+    usableApi,
+    setUsableApi,
     modalOpen,
     setSelectedTool,
     searchInput,
+    loading,
   } = useContext(MainContext);
 
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const URL = `https://pluga.co/ferramentas_search.json`;
-
-    setLoading(true);
-    axios
-      .get(URL)
-      .then(res => {
-        const array = res.data;
-
-        const newArray = array.sort((a, b) => {
-          let fa = a.name.toLowerCase(),
-              fb = b.name.toLowerCase();
-      
-          if (fa < fb) {
-              return -1;
-          }
-          if (fa > fb) {
-              return 1;
-          }
-
-          return 0;
-        });
-
-        setApi(newArray);
-        setData(newArray);
-        setLoading(false);
-      })
-
-  }, []);
-
-  // useEffect(() => {
-  //   const handlePageNumber = () => {
-  //     if (itemOffset === 0 ) {
-  //       setPage(1)
-  //     }
-
-  //     const newPage = (itemOffset / 12) + 1;
-  //     setPage(newPage)
-  //   }
-
-  //   handlePageNumber()
-  // }, [itemOffset])
-  
-  // useEffect(() => {
-  //   setStateMessage(`Página ${page}`)
-  // }, [page])
-
-  useEffect(() => {    
     if (!modalOpen) {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
       setSelectedTool({
         app_id: "",
         name: "",
         color: "",
         icon: "",
-        link: ""
+        link: "",
       });
-      
-      return
+
+      return;
     }
 
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   }, [modalOpen]);
 
   useEffect(() => {
-    const newList = searchInput !== '' ? data.filter(query => query?.name?.toLowerCase().match(searchInput?.toLowerCase()))
-    : data;
+    const newList =
+      searchInput !== ""
+        ? TOOLS_JSON.filter((query) =>
+            query?.name?.toLowerCase().match(searchInput?.toLowerCase())
+          )
+        : TOOLS_JSON;
 
-    setApi(newList);
-
+    setUsableApi(newList);
   }, [searchInput]);
 
   return (
     <main className="app">
-      {
-        modalOpen && (
-          <Modal />
-        )
-      }
+      {modalOpen && <Modal />}
       <Header />
-      <article className='grid-section'>
+      <article className="grid-section">
         <SearchSection />
-        {
-          loading ? (
-            <Loading />
-          ) : api.length === 0 ? (
-            <div className='not-found'>
-              <p>Não encontramos nenhuma ferramenta...</p>
-              <Illustration />
-            </div>
-          ) : (
-            <PaginatedItems itemsPerPage={12} />
-          )
-        }
+        {loading ? (
+          <Loading />
+        ) : usableApi.length === 0 ? (
+          <div className="not-found">
+            <p>Não encontramos nenhuma ferramenta...</p>
+            <Illustration />
+          </div>
+        ) : (
+          <PaginatedItems itemsPerPage={12} />
+        )}
       </article>
       <Footer />
     </main>
   );
-}
+};
 
 export default Home;

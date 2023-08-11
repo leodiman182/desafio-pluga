@@ -8,7 +8,7 @@
   text-align: center;
 
   padding: 10px 5px;
-  width: 85%;
+  width: 60%;
   height: 150px;
   margin: 0 auto;
 
@@ -50,6 +50,7 @@
     height: 150px;
     margin: 0 auto;
     opacity: 50%;
+    border-radius: 100px;
   }
 
   .card-wrapper:hover {
